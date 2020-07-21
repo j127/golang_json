@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+
+	"github.com/j127/golang_json/reader"
 )
 
 type equipment map[string]int
@@ -20,10 +22,13 @@ func main() {
 		{"Frodo", 33, "zxcv", equipment{"mushrooms": 5, "shoes": 0}},
 	}
 
-	output, err := json.MarshalIndent(hobbits, "", "\t")
+	// output, err := json.MarshalIndent(hobbits, "", "\t")
+	_, err := json.MarshalIndent(hobbits, "", "\t")
 	if err != nil {
 		fmt.Println("error marshalling json", err)
 		return
 	}
-	fmt.Println(string(output))
+	// fmt.Println(string(output))
+
+	reader.Read()
 }
