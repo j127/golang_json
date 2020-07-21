@@ -16,6 +16,7 @@ type Creature struct {
 	Equipment equipment `json:"equipment"`
 }
 
+// `go run main.go < data/hobbits.json`
 func main() {
 	hobbits := []Creature{
 		{"Bilbo", 111, "asdf", equipment{"ring": 1, "sword": 1}},

@@ -12,7 +12,6 @@ type hobbit struct {
 	Age  int    `json:"age"`
 }
 
-// `go run main.go < data/hobbits.json`
 func Read() {
 	var input []byte
 
@@ -21,12 +20,13 @@ func Read() {
 	}
 
 	var hobbits []hobbit
-	err := json.Unmarshal(input, &hobbits)
-	if err != nil {
+
+	if err := json.Unmarshal(input, &hobbits); err != nil {
 		fmt.Println(err)
 		return
 	}
 
+	fmt.Println("Data from a JSON file\n---------------------")
 	for _, hobbit := range hobbits {
 		fmt.Printf("%s is %d years old.\n", hobbit.Name, hobbit.Age)
 	}
